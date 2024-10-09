@@ -3,14 +3,13 @@ version: "3"
 services: 
   app:
     build: .
-    container_name: laike-travel-voucher
+    container_name: API-inspiratio/codeinnove
     restart: always
     tty: true
     networks: 
       - laike-travel-voucher_bridge
     ports: 
       - 9000:3000
-      - 9229:9229
     volumes: 
       - .:/usr/src/app
       # - /usr/src/app/node_modules

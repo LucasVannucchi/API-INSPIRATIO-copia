@@ -34,5 +34,5 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
 
 networks: 
-  laike-travel-voucher_bridge:
+  API-inspiratio-codeinnove_bridge:
     driver: bridge

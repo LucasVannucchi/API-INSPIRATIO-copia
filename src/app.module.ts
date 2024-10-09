@@ -7,8 +7,6 @@ import { DatabaseConnectionService } from './database/connection.service';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './features/users/users.module';
-import { CompaniesModule } from './features/companies/company.module';
-import { CardsModule } from './features/cards/card.module';
 import { AuthModule } from './core/auth/auth.module';
 import { MailsModule } from './features/mails/mails.module';
 import { MailerModule } from '@nestjs-modules/mailer';
@@ -51,8 +49,6 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
     }),
     AuthModule,
     UsersModule,
-    CompaniesModule,
-    CardsModule,
     MailsModule,
   ],
   controllers: [AppController],

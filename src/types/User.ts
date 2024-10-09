@@ -1,5 +1,4 @@
 import { Address } from './Address';
-import { Company } from './Company';
 import { Roles } from './Roles';
 
 export interface User {
@@ -14,7 +13,6 @@ export interface User {
   passwordResetExpires?: Date;
   address: Address;
   roles: Roles[];
-  companies?: Company[];
 }
 
 export type Auth = {

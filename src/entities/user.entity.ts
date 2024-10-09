@@ -12,7 +12,6 @@ export const UserSchema = new Schema({
   phone: { type: String, required: true },
   password: { type: String, required: false, select: false },
   passwordResetToken: { type: String, required: false, select: false },
-  passwordResetExpires: { type: Date, required: false, select: false },
   address: {
     street: { type: String, required: false },
     number: { type: Number, required: false },

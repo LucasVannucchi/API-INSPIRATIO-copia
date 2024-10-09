@@ -1,6 +1,8 @@
 import { Schema, Document } from 'mongoose';
 import { Company } from '../types/Company';
 
+
+// usado para pessoas PJ ou local de trabalho..
 export const CompanySchema = new Schema({
   _id: { type: Schema.Types.ObjectId, required: true, auto: true },
   companyName: { type: String, required: true },

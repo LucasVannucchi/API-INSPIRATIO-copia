@@ -8,6 +8,7 @@ export class CreateCompanyDto {
   @ApiProperty()
   companyName: string;
 
+  //whats? 
   @IsString()
   @IsNotEmpty()
   @ApiProperty()

@@ -3,11 +3,11 @@ version: "3"
 services: 
   app:
     build: .
-    container_name: API-inspiratio/codeinnove
+    container_name: API-inspiratio-codeinnove
     restart: always
     tty: true
     networks: 
-      - laike-travel-voucher_bridge
+      - API-inspiratio-codeinnove_bridge
     ports: 
       - 9000:3000
     volumes: 
@@ -21,9 +21,9 @@ services:
 
   db:
     image: mongo:latest
-    container_name: laike-travel-voucher_db
+    container_name: deploy-vercel-inspiratio_db
     networks:
-      - laike-travel-voucher_bridge
+      - API-inspiratio-codeinnove_bridge
     volumes:
       - ./db-mongo:/data/db
     ports:

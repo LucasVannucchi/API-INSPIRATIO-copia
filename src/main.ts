@@ -18,7 +18,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api/v1');
 
   const config = new DocumentBuilder()
-    .setTitle('Laike Turismo - Vale Viajem API')
+    .setTitle('API INSPIRATIO - CODE INNOVE')
     .setDescription('API for sign terms and contracts')
     .setVersion('0.1')
     .build();

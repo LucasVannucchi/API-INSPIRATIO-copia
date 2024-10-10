@@ -27,6 +27,8 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
       },
       inject: [DatabaseConnectionService],
     }),
+
+    // envio de email
     MailerModule.forRootAsync({
       useFactory: () => ({
         //Mailtrap's user and password
@@ -47,6 +49,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
         },
       }),
     }),
+
     AuthModule,
     UsersModule,
     MailsModule,

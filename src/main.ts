@@ -8,6 +8,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 import { urlencoded } from 'body-parser';
 
+// função inicial
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
 
@@ -17,6 +18,7 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api/v1');
 
+  // usado pra swagger
   const config = new DocumentBuilder()
     .setTitle('API INSPIRATIO - CODE INNOVE')
     .setDescription('API for sign terms and contracts')
@@ -27,6 +29,7 @@ async function bootstrap() {
 
   app.use(urlencoded({ extended: true }));
 
+  //inicial port 3000
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

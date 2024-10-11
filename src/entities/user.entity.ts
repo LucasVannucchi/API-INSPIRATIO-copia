@@ -21,8 +21,9 @@ export const UserSchema = new Schema({
     state: { type: String, required: false },
     zipcode: { type: String, required: false },
   },
+  document: [{type: String, required: false}],
+  idDocument: [{type: String, required: false}],
   roles: [{ type: String, enum: Roles, required: true }],
-  companies: [{ type: Schema.Types.ObjectId, ref: 'Company' }],
 });
 
 UserSchema.pre<IUserEntity>(['save'], function (next) {

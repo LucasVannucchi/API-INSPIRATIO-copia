@@ -20,7 +20,8 @@ export const UserSchema = new Schema({
   },
   patients: [{ 
     type: Schema.Types.ObjectId, 
-    ref: 'Pacient'  // Referencia o modelo de paciente
+    ref: 'Pacient',  // Referencia o modelo de paciente
+    psyco: [{ type: String, required: true }],
   }],
   address: {
     street: { type: String, required: false },
@@ -37,6 +38,7 @@ export const UserSchema = new Schema({
 });
 
 
+// responsible for the patient
 export const ResponsibleSchema = new Schema({
   name: { type: String, required: true },
   phone: { type: String, required: true },
@@ -44,16 +46,39 @@ export const ResponsibleSchema = new Schema({
   relation: { type: String, required: true }, // Exemplo: "Mãe", "Pai", etc.
 });
 
+
 export const PacientSchema = new Schema({
   name: { type: String, required: true },
   age: { type: Number, required: true },
   responsible: { 
     type: Schema.Types.ObjectId, 
     ref: 'Responsible',  // Referencia o modelo de responsável
-    required: true 
   },
+  doctors: [{  // Array de médicos associados ao paciente
+    doctorId: { 
+      type: Schema.Types.ObjectId, 
+      ref: 'Doctor',  // Referencia o modelo de médico
+      required: true 
+    },
+    specialty: { 
+      type: String, 
+      required: true 
+    }
+  }]
 });
 
+// Modelo do Médico
+export const DoctorSchema = new Schema({
+  name: { type: String, required: true },
+  specialty: { type: String, required: true },
+  // Outros campos relevantes para o médico
+});
+
+
+/* - If the password field is present, the middleware generates a hash encrypted using HMAC-SHA512, with a "salt" value 
+(PASSWORD_SALT) defined in the environment.
+The password value is then replaced by the hash.
+The next() method is called to continue the save flow.*/ 
 UserSchema.pre<IUserEntity>(['save'], function (next) {
   if (this.password) {
     const hashPassword = HmacSHA512(
@@ -66,6 +91,10 @@ UserSchema.pre<IUserEntity>(['save'], function (next) {
   next();
 });
 
+// It checks whether a new password was sent in the update.
+//If there is a password, it is encrypted with HMAC-SHA512, as in the save hook.
+//The password in the update document is replaced with the hash.
+//next() continues the update flow.
 UserSchema.pre<any>('findOneAndUpdate', function (next) {
   const password = this.getUpdate().password;
   if (password) {
@@ -77,5 +106,7 @@ UserSchema.pre<any>('findOneAndUpdate', function (next) {
   }
   next();
 });
+
+
 
 export interface IUserEntity extends Omit<User, '_id'>, Document {}

@@ -21,9 +21,17 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
     MongooseModule.forRootAsync({
       imports: [DatabaseModule],
       useFactory: (database: DatabaseConnectionService) => {
-        return <MongooseModuleOptions>{
-          uri: database.get(),
-        };
+        try {
+          console.log('Tentando conectar ao MongoDB...');
+          const mongoUri = database.get();
+          console.log('Conectado ao MongoDB Atlas com sucesso!');
+          return <MongooseModuleOptions>{
+            uri: mongoUri,
+          };
+        } catch (error) {
+          console.error('Erro ao conectar ao MongoDB:', error);
+          throw error;
+        }
       },
       inject: [DatabaseConnectionService],
     }),

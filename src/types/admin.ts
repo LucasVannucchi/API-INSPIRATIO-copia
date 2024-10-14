@@ -1,3 +1,11 @@
 export interface Admin{
-    admin: { type: String, required: true },
+    _id: String;
+    name: String;
+    cpf: string;
+    rg?: string;
+    email: string;
+    phone: string;
+    password: string;
+    passwordResetToken?: string;
+    passwordResetExpires?: Date;
 }

@@ -15,13 +15,12 @@ export const UserSchema = new Schema({
   password: { type: String, required: false, select: false },
   passwordResetToken: { type: String, required: false, select: false },
   type: {
-    psyco: { type: String, required: true },
+    medical: { type: String, required: true },
     admin: { type: String, required: true },
   },
   patients: [{ 
     type: Schema.Types.ObjectId, 
     ref: 'Pacient',  // Referencia o modelo de paciente
-    psyco: [{ type: String, required: true }],
   }],
   address: {
     street: { type: String, required: false },
@@ -65,13 +64,6 @@ export const PacientSchema = new Schema({
       required: true 
     }
   }]
-});
-
-// Modelo do Médico
-export const DoctorSchema = new Schema({
-  name: { type: String, required: true },
-  specialty: { type: String, required: true },
-  // Outros campos relevantes para o médico
 });
 
 

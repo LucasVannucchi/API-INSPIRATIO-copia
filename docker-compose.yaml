@@ -2,7 +2,7 @@ version: "3"
 
 services: 
   app:
-    image: api_insp-app
+    image: codeinnove/api-inspiratio-codeinnove:1.0-amd64
     build: .
     container_name: API-inspiratio-codeinnove
     restart: always

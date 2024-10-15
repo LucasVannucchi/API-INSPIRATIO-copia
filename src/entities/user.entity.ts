@@ -20,7 +20,7 @@ export const UserSchema = new Schema({
   },
   patients: [{ 
     type: Schema.Types.ObjectId, 
-    ref: 'Pacient',  // Referencia o modelo de paciente
+    ref: 'Pacient'  // Referencia o modelo de paciente
   }],
   address: {
     street: { type: String, required: false },

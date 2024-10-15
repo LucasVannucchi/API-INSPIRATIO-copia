@@ -8,5 +8,5 @@ export interface Psyco {
     password: string;
     passwordResetToken?: string;
     passwordResetExpires?: Date;
-    description: String;
+    specialties?: string[];
 }

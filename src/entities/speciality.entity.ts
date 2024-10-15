@@ -1,7 +1,7 @@
 import { Schema, Document } from 'mongoose';
 import { Roles } from '../types/Roles';
 import { Speciality } from 'src/types/speciality';
-import { HmacSHA512 } from 'crypto-js';
+
 
 // atendimentos
 export const specialitySchema = new Schema({

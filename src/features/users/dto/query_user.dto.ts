@@ -7,6 +7,7 @@ import {
   IsString,
 } from 'class-validator';
 
+// Um parâmetro opcional para paginação
 export class QueryDto {
   @IsOptional()
   @IsNumberString()
@@ -38,13 +39,15 @@ export class QueryDto {
   @ApiProperty({ required: false })
   email?: string;
 
-  @IsOptional()
-  @IsDate()
-  @ApiProperty({ required: false })
-  dateInit?: Date;
+  @IsOptional() 
+  @IsDate() //Valida que o valor fornecido para o campo é uma data válida (Date).
+  @ApiProperty({ required: false }) //Este decorator é específico do Swagger, utilizado para gerar documentação de APIs.
+  dateInit?: Date; //representariam o intervalo de tempo para filtrar os resultados.
 
   @IsOptional()
   @IsDate()
   @ApiProperty({ required: false })
-  dateEnd?: Date;
+  dateEnd?: Date; // representariam o intervalo de tempo para filtrar os resultados.
+
+
 }

@@ -55,7 +55,7 @@ export const PacientSchema = new Schema({
   },
   doctors: [{  // Array de médicos associados ao paciente
     doctorId: { 
-      type: Schema.Types.ObjectId, 
+      type: Schema.Types.ObjectId,
       ref: 'Doctor',  // Referencia o modelo de médico
       required: true 
     },

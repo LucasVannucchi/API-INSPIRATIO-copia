@@ -21,7 +21,7 @@ services:
     depends_on: 
       - db
 
-  db:
+  db: 
     image: mongo:latest
     container_name: deploy-vercel-inspiratio_db
     networks:

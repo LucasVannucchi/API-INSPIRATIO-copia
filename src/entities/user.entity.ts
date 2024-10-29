@@ -15,7 +15,7 @@ export const UserSchema = new Schema({
   password: { type: String, required: false, select: false },
   passwordResetToken: { type: String, required: false, select: false },
   type: {
-    medical: { type: String, required: true },
+    doctor: { type: String, required: true },
     admin: { type: String, required: true },
   },
   patients: [{ 
@@ -53,7 +53,7 @@ export const PacientSchema = new Schema({
     type: Schema.Types.ObjectId, 
     ref: 'Responsible',  // Referencia o modelo de responsável
   },
-  doctors: [{  // Array de médicos associados ao paciente
+  doctor: [{  // Array de médicos associados ao paciente
     doctorId: { 
       type: Schema.Types.ObjectId,
       ref: 'Doctor',  // Referencia o modelo de médico

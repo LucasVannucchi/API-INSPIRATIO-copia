@@ -67,10 +67,10 @@ export const PacientSchema = new Schema({
 });
 
 
-/* - If the password field is present, the middleware generates a hash encrypted using HMAC-SHA512, with a "salt" value 
-(PASSWORD_SALT) defined in the environment.
-The password value is then replaced by the hash.
-The next() method is called to continue the save flow.*/ 
+/* - Se o campo de senha estiver presente, o middleware gera um hash criptografado usando HMAC-SHA512, com um valor "salt"
+(PASSWORD_SALT) definido no ambiente.
+O valor da senha é então substituído pelo hash.
+O método next() é chamado para continuar o fluxo de salvamento.*/
 UserSchema.pre<IUserEntity>(['save'], function (next) {
   if (this.password) {
     const hashPassword = HmacSHA512(
@@ -83,10 +83,10 @@ UserSchema.pre<IUserEntity>(['save'], function (next) {
   next();
 });
 
-// It checks whether a new password was sent in the update.
-//If there is a password, it is encrypted with HMAC-SHA512, as in the save hook.
-//The password in the update document is replaced with the hash.
-//next() continues the update flow.
+// Ele verifica se uma nova senha foi enviada na atualização.
+//Se houver uma senha, ela é criptografada com HMAC-SHA512, como no gancho de salvamento.
+//A senha no documento de atualização é substituída pelo hash.
+//next() continua o fluxo de atualização.
 UserSchema.pre<any>('findOneAndUpdate', function (next) {
   const password = this.getUpdate().password;
   if (password) {

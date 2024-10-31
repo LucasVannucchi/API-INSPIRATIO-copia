@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { SpecialityService } from './speciality.service';
-import { CreateUserDto } from './dto/create_speciality.dto';
+import { CreateSpecialityDto } from './dto/create_speciality.dto';
 import { UpdateUserDto } from './dto/update_user.dto';
 import { QueryDto } from './dto/query_user.dto';
 
@@ -23,7 +23,7 @@ export class SpecialityController {
   constructor(private readonly user: SpecialityService) {}
 
   @Post()
-  create(@Body() data: CreateUserDto) {
+  create(@Body() data: CreateSpecialityDto) {
     return this.user.create(data);
   }
 

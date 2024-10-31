@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import { User } from 'src/types/User';
-import { CreateUserDto } from './dto/create_speciality.dto';
+import { CreateSpecialityDto } from './dto/create_speciality.dto';
 import { IUserEntity } from 'src/entities/user.entity';
 import { UpdateUserDto } from './dto/update_user.dto';
 import { QueryDto } from './dto/query_user.dto';
@@ -14,7 +14,7 @@ export class SpecialityRepository {
     @InjectModel('User') private readonly userModel: Model<IUserEntity>,
   ) {}
 
-  async createUser(data: CreateUserDto): Promise<User> {
+  async createUser(data: CreateSpecialityDto): Promise<User> {
     return this.userModel.create(data);
   }
 

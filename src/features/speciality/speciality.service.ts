@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 import { MailerService } from '@nestjs-modules/mailer';
 
-import { CreateUserDto } from './dto/create_speciality.dto';
+import { CreateSpecialityDto } from './dto/create_speciality.dto';
 import { SpecialityRepository } from './speciality.repository';
 import { UsersRepository } from '../users/users.repository';
 import { UpdateUserDto } from './dto/update_user.dto';
@@ -18,7 +18,7 @@ export class SpecialityService {
     private readonly specialityRepository: SpecialityRepository 
   ) {}
 
-  async create(data: CreateUserDto) {
+  async create(data: CreateSpecialityDto) {
     try {
       const user = await this.userRepository.createUser(data)
 

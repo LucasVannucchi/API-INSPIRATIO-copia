@@ -9,7 +9,7 @@ import { UpdateUserDto } from './dto/update_user.dto';
 import { QueryDto } from './dto/query_user.dto';
 
 @Injectable()
-export class UsersRepository {
+export class SpecialityRepository {
   constructor(
     @InjectModel('User') private readonly userModel: Model<IUserEntity>,
   ) {}

@@ -3,17 +3,19 @@ import { v4 as uuidv4 } from 'uuid';
 import { MailerService } from '@nestjs-modules/mailer';
 
 import { CreateUserDto } from './dto/create_speciality.dto';
-import { UsersRepository } from './speciality.repository';
+import { SpecialityRepository } from './speciality.repository';
+import { UsersRepository } from '../users/users.repository';
 import { UpdateUserDto } from './dto/update_user.dto';
 import { QueryDto } from './dto/query_user.dto';
 import { HmacSHA512 } from 'crypto-js';
 import { User } from 'src/types/User';
 
 @Injectable()
-export class UserService {
+export class SpecialityService {
   constructor(
     private readonly userRepository: UsersRepository,
     private readonly mailerService: MailerService,
+    private readonly specialityRepository: SpecialityRepository 
   ) {}
 
   async create(data: CreateUserDto) {

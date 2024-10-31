@@ -7,14 +7,16 @@ import { CreateSpecialityDto } from './dto/create_speciality.dto';
 import { IUserEntity } from 'src/entities/user.entity';
 import { UpdateUserDto } from './dto/update_user.dto';
 import { QueryDto } from './dto/query_user.dto';
+import { ISpecialityEntity } from 'src/entities/speciality.entity';
+import { Speciality } from 'src/types/speciality';
 
 @Injectable()
 export class SpecialityRepository {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<IUserEntity>,
+    @InjectModel('User') private readonly userModel: Model<ISpecialityEntity>,
   ) {}
 
-  async createUser(data: CreateSpecialityDto): Promise<User> {
+  async createSpeciality(data: CreateSpecialityDto): Promise<Speciality> {
     return this.userModel.create(data);
   }
 
@@ -72,7 +74,7 @@ export class SpecialityRepository {
     return { data, total, page: +page, pages };
   }
 
-  async findByEmail(email: string): Promise<User> {
+  async findByEmail(email: string): Promise<Speciality> {
     return this.userModel
       .findOne({ email })
       .select('+password')
@@ -83,15 +85,15 @@ export class SpecialityRepository {
       .exec();
   }
 
-  async findByToken(token: string): Promise<User> {
+  async findByToken(token: string): Promise<Speciality> {
     return this.userModel.findOne({ passwordResetToken: token }).lean().exec();
   }
 
-  async findById(id: string): Promise<User> {
+  async findById(id: string): Promise<Speciality> {
     return this.userModel.findById(id).populate('companies').lean().exec();
   }
 
-  async update(id: string, data: UpdateUserDto): Promise<User> {
+  async update(id: string, data: UpdateUserDto): Promise<Speciality> {
     return this.userModel
       .findOneAndUpdate({ _id: id }, data, { new: true })
       .populate('companies')
@@ -100,7 +102,7 @@ export class SpecialityRepository {
   }
 
 
-  async delete(id: string): Promise<User> {
+  async delete(id: string): Promise<Speciality> {
     return this.userModel.findByIdAndDelete(id).exec();
   }
 }

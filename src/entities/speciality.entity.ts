@@ -11,4 +11,4 @@ export const specialitySchema = new Schema({
   desciption: {type: String, required: true},
 });
 
-export interface IspecialityEntity extends Omit<Speciality, '_id'>, Document {}
+export interface ISpecialityEntity extends Omit<Speciality, '_id'>, Document {}

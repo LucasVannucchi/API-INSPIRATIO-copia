@@ -8,7 +8,7 @@ import { UsersRepository } from '../users/users.repository';
 import { UpdateUserDto } from './dto/update_user.dto';
 import { QueryDto } from './dto/query_user.dto';
 import { HmacSHA512 } from 'crypto-js';
-import { User } from 'src/types/User';
+import { Speciality } from 'src/types/speciality';
 
 @Injectable()
 export class SpecialityService {
@@ -20,7 +20,7 @@ export class SpecialityService {
 
   async create(data: CreateSpecialityDto) {
     try {
-      const user = await this.userRepository.createUser(data)
+      const user = await this.specialityRepository.createSpeciality(data)
 
       return user;
     } catch (error) {

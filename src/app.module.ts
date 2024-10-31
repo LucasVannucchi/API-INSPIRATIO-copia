@@ -41,7 +41,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
       useFactory: () => ({
         //Mailtrap's user and password
         transport: {
-          host: 'mail.laiketurismo.com.br',
+          host: 'codeinnove@gmail.com',
           port: 465,
           auth: {
             user: process.env.MAIL_LOGIN,

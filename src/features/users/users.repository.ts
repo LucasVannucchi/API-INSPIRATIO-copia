@@ -12,7 +12,7 @@ import { QueryDto } from './dto/query_user.dto';
 export class UsersRepository {
   constructor(
     @InjectModel('User') private readonly userModel: Model<IUserEntity>,
-  ) {}
+  ) { }
 
   async createUser(data: CreateUserDto): Promise<User> {
     return this.userModel.create(data);
@@ -62,7 +62,9 @@ export class UsersRepository {
       .find(query)
       .skip(skip)
       .limit(limit)
-      .populate('companies')
+      .populate('patients')
+      .populate('doctors')
+      .populate('responsible')
       .lean()
       .exec();
 
@@ -78,7 +80,9 @@ export class UsersRepository {
       .select('+password')
       .select('+passwordResetToken')
       .select('+passwordResetExpires')
-      .populate('companies')
+      .populate('patients')
+      .populate('doctors')
+      .populate('responsible')
       .lean()
       .exec();
   }
@@ -88,13 +92,20 @@ export class UsersRepository {
   }
 
   async findById(id: string): Promise<User> {
-    return this.userModel.findById(id).populate('companies').lean().exec();
+    return this.userModel.findById(id)
+      .populate('patients')
+      .populate('doctors')
+      .populate('responsible')
+      .lean()
+      .exec();
   }
 
   async update(id: string, data: UpdateUserDto): Promise<User> {
     return this.userModel
       .findOneAndUpdate({ _id: id }, data, { new: true })
-      .populate('companies')
+      .populate('patients')
+      .populate('doctors')
+      .populate('responsible')
       .lean()
       .exec();
   }
@@ -105,7 +116,9 @@ export class UsersRepository {
   ): Promise<User> {
     return this.userModel
       .findOneAndUpdate({ _id: id }, data, { new: true })
-      .populate('companies')
+      .populate('patients')
+      .populate('doctors')
+      .populate('responsible')
       .lean()
       .exec();
   }

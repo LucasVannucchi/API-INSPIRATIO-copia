@@ -64,7 +64,7 @@ export class SpecialityService {
     }
   }
 
-  async update(id: string, data: UpdateUserDto) {
+  async update(id: string, data: any) {
     try {
       return this.userRepository.update(id, data);
     } catch (error) {

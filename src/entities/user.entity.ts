@@ -48,7 +48,7 @@ export const ResponsibleSchema = new Schema({
 
 
 export const PacientSchema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: false },
   age: { type: Number, required: true },
   responsible: { 
     type: Schema.Types.ObjectId, 

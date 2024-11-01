@@ -27,15 +27,15 @@ export class MailsService {
     const data = await this.mailerService.sendMail({
       to: process.env.MAIL_TO,
       from: {
-        name: 'Laike Turismo | Vale Viagem',
+        name: 'CODE INNOVE | Suporte ',
         address: process.env.MAIL_FROM,
       },
-      subject: 'Contato sobre Vale Viagem',
+      subject: 'Contato com o suporte',
       template: './mail',
       attachments: [...this.emailAttachments],
       context: {
         name: mail.name,
-        title: 'Contato sobre Vale Viagem',
+        title: 'Contato com o suporte',
         phone: mail.phone,
         mail: mail.email,
         message: mail.message,

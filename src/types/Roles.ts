@@ -1,6 +1,9 @@
 export enum Roles {
-  ADMIN = 'admin',
   USER = 'user',
+  DOCTOR = 'doctor',
+  ADMIN = 'admin',
+  PATIENT = 'patient',
+  RESPONSIBLE = 'responsible',
 }
 
 export enum UserTypes {

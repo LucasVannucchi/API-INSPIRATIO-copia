@@ -1,7 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { Types } from 'mongoose';
 import { AddressDto } from 'src/commons/dtos/Address.dto';
-import { Roles } from 'src/types/Roles';
+import { Roles, UserTypes } from 'src/types/Roles';
 
 export class CreateUserDto {
   @IsString() //precisa ser string - validando o dado antes de chegar no serviço
@@ -39,12 +40,30 @@ export class CreateUserDto {
   address?: AddressDto;
 
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
+  @IsArray({ each: true })
   @ApiProperty()
-  psyco: String;
+  doctor: Types.ObjectId[];
+
+  @IsString()
+  @IsOptional()
+  @IsArray({ each: true })
+  @ApiProperty()
+  responsible: Types.ObjectId[];
+
+  @IsString()
+  @IsOptional()
+  @IsArray({ each: true })
+  @ApiProperty()
+  patients: Types.ObjectId[];
   
   @IsArray()
   @IsNotEmpty()
   @ApiProperty({ enum: Roles, type: 'string', isArray: true })
   roles: Roles[];
+
+  @IsArray()
+  @IsNotEmpty()
+  @ApiProperty({ enum: UserTypes, type: 'string', isArray: true })
+  type: UserTypes[];
 }

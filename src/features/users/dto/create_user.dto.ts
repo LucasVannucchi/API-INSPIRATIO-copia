@@ -39,23 +39,20 @@ export class CreateUserDto {
   @ApiProperty({ type: AddressDto })
   address?: AddressDto;
 
-  @IsString()
   @IsOptional()
-  @IsArray({ each: true })
+  @IsArray()
   @ApiProperty()
-  doctor: Types.ObjectId[];
+  doctor: string[];
 
-  @IsString()
   @IsOptional()
-  @IsArray({ each: true })
+  @IsArray()
   @ApiProperty()
-  responsible: Types.ObjectId[];
+  responsible: string[];
 
-  @IsString()
   @IsOptional()
-  @IsArray({ each: true })
+  @IsArray()
   @ApiProperty()
-  patients: Types.ObjectId[];
+  patients: string[];
   
   @IsArray()
   @IsNotEmpty()

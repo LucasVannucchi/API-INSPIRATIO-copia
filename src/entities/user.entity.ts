@@ -32,16 +32,14 @@ export const UserSchema = new Schema({
     required: false
   }],
   address: {
-    street: { type: String, required: false },
-    number: { type: Number, required: false },
-    complement: { type: String, required: false },
-    neighborhood: { type: String, required: false },
-    city: { type: String, required: false },
-    state: { type: String, required: false },
-    zipcode: { type: String, required: false },
+    street: { type: String },
+    number: { type: Number },
+    complement: { type: String },
+    neighborhood: { type: String },
+    city: { type: String },
+    state: { type: String },
+    zipcode: { type: String },
   },
-  document: [{type: String, required: false}],
-  idDocument: [{type: String, required: false}],
   roles: [{ type: String, enum: Roles, default: Roles.USER, required: true }],
 });
 

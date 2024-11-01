@@ -159,18 +159,18 @@ export class UserService {
         passwordResetExpires: now,
       });
 
-      await this.mailerService.sendMail({
-        to: user.email,
-        from: process.env.MAIL_FROM,
-        subject: newUser ? 'Crie sua senha' : 'Recupere sua senha',
-        template: newUser ? 'create-pass' : 'forgot-pass',
-        context: {
-          user_name: user.name,
-          url: newUser
-            ? `${process.env.APP_URL}/create-pass?token=${hashData}`
-            : `${process.env.APP_URL}/reset-pass?token=${hashData}`,
-        },
-      });
+      // await this.mailerService.sendMail({
+      //   to: user.email,
+      //   from: process.env.MAIL_FROM,
+      //   subject: newUser ? 'Crie sua senha' : 'Recupere sua senha',
+      //   template: newUser ? 'create-pass' : 'forgot-pass',
+      //   context: {
+      //     user_name: user.name,
+      //     url: newUser
+      //       ? `${process.env.APP_URL}/create-pass?token=${hashData}`
+      //       : `${process.env.APP_URL}/reset-pass?token=${hashData}`,
+      //   },
+      // });
     } catch (error) {
       throw new HttpException(
         { message: error.message },

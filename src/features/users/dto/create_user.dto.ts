@@ -42,12 +42,7 @@ export class CreateUserDto {
   @IsNotEmpty()
   @ApiProperty()
   psyco: String;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  patients: String;
-
+  
   @IsArray()
   @IsNotEmpty()
   @ApiProperty({ enum: Roles, type: 'string', isArray: true })

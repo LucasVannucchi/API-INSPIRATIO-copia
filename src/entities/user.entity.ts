@@ -15,12 +15,13 @@ export const UserSchema = new Schema({
   password: { type: String, required: false, select: false },
   passwordResetToken: { type: String, required: false, select: false },
   type: {
-    doctor: { type: String, required: true },
-    admin: { type: String, required: true },
+    doctor: { type: String},
+    admin: { type: String},
   },
   patients: [{ 
     type: Schema.Types.ObjectId, 
-    ref: 'Pacient'  // Referencia o modelo de paciente
+    ref: 'Pacient',  // Referencia o modelo de paciente
+    required: false
   }],
   address: {
     street: { type: String, required: false },

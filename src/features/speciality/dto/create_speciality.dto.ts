@@ -10,33 +10,9 @@ export class CreateSpecialityDto {
   name: string;
 
   @IsString()
-  @IsOptional()
-  @ApiProperty()
-  cpf?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty()
-  rg?: string;
-
-  @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  email: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  phone: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty()
-  password: string;
-
-  @IsOptional()
-  @ApiProperty({ type: AddressDto })
-  address?: AddressDto;
+  description: string;
 
   @IsString()
   @IsNotEmpty()

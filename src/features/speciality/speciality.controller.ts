@@ -12,8 +12,8 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 import { SpecialityService } from './speciality.service';
 import { CreateSpecialityDto } from './dto/create_speciality.dto';
-import { UpdateUserDto } from './dto/update_user.dto';
-import { QueryDto } from './dto/query_user.dto';
+import { UpdateUserDto } from './dto/update_speciality.dto';
+import { QueryDto } from './dto/query_speciality.dto';
 
 
 @ApiTags('Users')

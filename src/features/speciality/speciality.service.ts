@@ -5,8 +5,8 @@ import { MailerService } from '@nestjs-modules/mailer';
 import { CreateSpecialityDto } from './dto/create_speciality.dto';
 import { SpecialityRepository } from './speciality.repository';
 import { UsersRepository } from '../users/users.repository';
-import { UpdateUserDto } from './dto/update_user.dto';
-import { QueryDto } from './dto/query_user.dto';
+import { UpdateUserDto } from './dto/update_speciality.dto';
+import { QueryDto } from './dto/query_speciality.dto';
 import { HmacSHA512 } from 'crypto-js';
 import { Speciality } from 'src/types/speciality';
 

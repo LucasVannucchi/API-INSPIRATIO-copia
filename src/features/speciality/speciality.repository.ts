@@ -5,8 +5,8 @@ import { Model } from 'mongoose';
 import { User } from 'src/types/User';
 import { CreateSpecialityDto } from './dto/create_speciality.dto';
 import { IUserEntity } from 'src/entities/user.entity';
-import { UpdateUserDto } from './dto/update_user.dto';
-import { QueryDto } from './dto/query_user.dto';
+import { UpdateUserDto } from './dto/update_speciality.dto';
+import { QueryDto } from './dto/query_speciality.dto';
 import { ISpecialityEntity } from 'src/entities/speciality.entity';
 import { Speciality } from 'src/types/speciality';
 

@@ -1,4 +1,4 @@
-export interface Psyco {
+export interface Doctor {
     _id: String;
     name: String;
     cpf: string;

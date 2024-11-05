@@ -1,9 +1,10 @@
 import { Address } from './Address';
 import { Roles } from './Roles';
-import { Psyco } from './psyco';
+import { Doctor } from './doctor';
 import { Admin } from './admin';
 import { Patients } from './patients';
 import { Speciality } from './speciality';
+import { Doc } from 'prettier';
 
 export interface User {
   _id?: string;
@@ -17,7 +18,7 @@ export interface User {
   passwordResetExpires?: Date;
   address: Address;
   admin: Admin;
-  psyco: Psyco;
+  doctor: Doctor;
   patients: Patients;
   speciality: Speciality;
   roles: Roles[];

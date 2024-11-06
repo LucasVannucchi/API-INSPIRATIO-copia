@@ -16,7 +16,7 @@ export class ConsultationRepository {
     @InjectModel('Consultation') private readonly consultationModel: Model<IConsultationEntity>,
   ) {}
 
-  async createSpeciality(data: CreateConsultationDto): Promise<Consultation> {
+  async createConsultation(data: CreateConsultationDto): Promise<Consultation> {
     return this.consultationModel.create(data);
   }
 

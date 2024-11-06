@@ -2,13 +2,14 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 //import { v4 as uuidv4 } from 'uuid';
 import { MailerService } from '@nestjs-modules/mailer';
 
+import { Consultation } from 'src/types/consultation';
 import { CreateConsultationDto } from './dto/create_consultation.dto';
 import { ConsultationRepository } from './consultation.repository';
 import { UsersRepository } from '../users/users.repository';
 import { UpdateConsultationyDto } from './dto/update_consultation.dto';
 import { QueryConsultationDto } from './dto/query_consultation.dto';
 import { HmacSHA512 } from 'crypto-js';
-import { Speciality } from 'src/types/speciality';
+//import { Speciality } from 'src/types/speciality';
 
 @Injectable()
 export class ConsultationService {
@@ -20,9 +21,9 @@ export class ConsultationService {
 
   async create(data: CreateConsultationDto) {
     try {
-      const user = await this.ConsultationRepository.createSpeciality(data)
-
-      return user;
+      const consultation = await this.ConsultationRepository.createConsultation(data)
+      
+      return consultation;
     } catch (error) {
       throw new HttpException(
         { message: error.message },

@@ -5,8 +5,8 @@ import { MailerService } from '@nestjs-modules/mailer';
 import { CreateSpecialityDto } from './dto/create_speciality.dto';
 import { SpecialityRepository } from './speciality.repository';
 import { UsersRepository } from '../users/users.repository';
-import { UpdateUserDto } from './dto/update_speciality.dto';
-import { QueryDto } from './dto/query_speciality.dto';
+import { UpdateSpecialityDto } from './dto/update_speciality.dto';
+import { QuerySpecialityDto } from './dto/query_speciality.dto';
 import { HmacSHA512 } from 'crypto-js';
 import { Speciality } from 'src/types/speciality';
 
@@ -31,7 +31,7 @@ export class SpecialityService {
     }
   }
 
-  async findAll(query: QueryDto) {
+  async findAll(query: QuerySpecialityDto) {
     try {
       return this.userRepository.findAll(query);
     } catch (error) {

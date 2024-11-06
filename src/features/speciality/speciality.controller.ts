@@ -12,8 +12,8 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 import { SpecialityService } from './speciality.service';
 import { CreateSpecialityDto } from './dto/create_speciality.dto';
-import { UpdateUserDto } from './dto/update_speciality.dto';
-import { QueryDto } from './dto/query_speciality.dto';
+import { UpdateSpecialityDto } from './dto/update_speciality.dto';
+import { QuerySpecialityDto } from './dto/query_speciality.dto';
 
 
 @ApiTags('Users')
@@ -30,7 +30,7 @@ export class SpecialityController {
   // @HasRoles(ImportedRoles.ADMIN)
   // @UseGuards(RolesGuard)
   @Get()
-  findAll(@Query() query: QueryDto) {
+  findAll(@Query() query: QuerySpecialityDto) {
     return this.user.findAll(query);
   }
 
@@ -45,7 +45,7 @@ export class SpecialityController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() data: UpdateUserDto) {
+  update(@Param('id') id: string, @Body() data: UpdateSpecialityDto) {
     return this.user.update(id, data);
   }
 

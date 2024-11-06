@@ -16,9 +16,9 @@ import { UpdateConsultationyDto } from './dto/update_consultation.dto';
 import { QueryConsultationDto } from './dto/query_consultation.dto';
 
 
-@ApiTags('Users')
+@ApiTags('Consultaions')
 // @UseGuards(JwtAuthGuard)
-@Controller('users')
+@Controller('consultations')
 export class ConsultationController {
   constructor(private readonly user: ConsultationService) {}
 

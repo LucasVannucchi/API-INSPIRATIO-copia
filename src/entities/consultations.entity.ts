@@ -11,4 +11,4 @@ const consultationSchema = new Schema({
     date: {type: Date},
     status: {type: String, enum: ['pending', 'completed', 'cancelled']}
 });
-//export interface IConsultationEntity extends Omit<Consultation, '_id'>, Document {}
+export interface IConsultationEntity extends Omit<Consultation, '_id'>, Document {}

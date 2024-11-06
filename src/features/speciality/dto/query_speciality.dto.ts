@@ -8,26 +8,15 @@ import {
 } from 'class-validator';
 
 // Um parâmetro opcional para paginação
-export class QueryDto {
-  @IsOptional()
-  @IsNumberString()
-  @ApiProperty({ required: false })
-  page?: number;
-
-  @IsOptional()
-  @IsNumberString()
-  @ApiProperty({ required: false })
-  limit?: number;
-
-  @IsOptional()
+export class QuerySpecialityDto {
+  
+  @IsEmail()
   @IsString()
   @ApiProperty({ required: false })
-  name?: string;
+  doctor: string;
 
-  @IsOptional()
   @IsString()
-  @ApiProperty({ required: false })
-  cpf?: string;
+  patient: string
 
   @IsOptional()
   @IsString()

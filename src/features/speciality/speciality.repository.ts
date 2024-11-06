@@ -5,46 +5,35 @@ import { Model } from 'mongoose';
 import { User } from 'src/types/User';
 import { CreateSpecialityDto } from './dto/create_speciality.dto';
 import { IUserEntity } from 'src/entities/user.entity';
-import { UpdateUserDto } from './dto/update_speciality.dto';
-import { QueryDto } from './dto/query_speciality.dto';
+import { UpdateSpecialityDto } from './dto/update_speciality.dto';
+import { QuerySpecialityDto } from './dto/query_speciality.dto';
 import { ISpecialityEntity } from 'src/entities/speciality.entity';
 import { Speciality } from 'src/types/speciality';
 
 @Injectable()
 export class SpecialityRepository {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<ISpecialityEntity>,
+    @InjectModel('User') private readonly specialityModel: Model<ISpecialityEntity>,
   ) {}
 
   async createSpeciality(data: CreateSpecialityDto): Promise<Speciality> {
-    return this.userModel.create(data);
+    return this.specialityModel.create(data);
   }
 
-  async findAll(options: QueryDto) {
+  async findAll(options: QuerySpecialityDto) {
     const {
-      page = 1,
-      limit = 10,
-      name = '',
-      cpf = '',
       dateEnd = null,
       dateInit = null,
       email = '',
       role = '',
-    } = options;
-    const skip = (page - 1) * limit;
-    let query = {};
+    } = options; 
 
-    if (name) {
-      query = { ...query, name: { $regex: new RegExp(name, 'i') } };
-    }
+    let query = {};
 
     if (email) {
       query = { ...query, email: { $regex: new RegExp(email, 'i') } };
     }
 
-    if (cpf) {
-      query = { ...query, cpf: { $regex: new RegExp(cpf, 'i') } };
-    }
 
     if (role) {
       query = { ...query, roles: { $in: role } };
@@ -60,21 +49,18 @@ export class SpecialityRepository {
       };
     }
 
-    const data = await this.userModel
+    const data = await this.specialityModel
       .find(query)
-      .skip(skip)
-      .limit(limit)
       .populate('companies')
       .lean()
       .exec();
 
-    const total = await this.userModel.countDocuments(query).exec();
-    const pages = Math.ceil(total / limit);
+    const total = await this.specialityModel.countDocuments(query).exec();
 
-    return { data, total, page: +page, pages };
+    return { data, total,};
   }
 
-  async findByEmail(email: string): Promise<Speciality> {
+  /*async findByEmail(email: string): Promise<Speciality> {
     return this.userModel
       .findOne({ email })
       .select('+password')
@@ -83,18 +69,18 @@ export class SpecialityRepository {
       .populate('companies')
       .lean()
       .exec();
-  }
+  }*/
 
   async findByToken(token: string): Promise<Speciality> {
-    return this.userModel.findOne({ passwordResetToken: token }).lean().exec();
+    return this.specialityModel.findOne({ passwordResetToken: token }).lean().exec();
   }
 
   async findById(id: string): Promise<Speciality> {
-    return this.userModel.findById(id).populate('companies').lean().exec();
+    return this.specialityModel.findById(id).populate('companies').lean().exec();
   }
 
-  async update(id: string, data: UpdateUserDto): Promise<Speciality> {
-    return this.userModel
+  async update(id: string, data: UpdateSpecialityDto): Promise<Speciality> {
+    return this.specialityModel
       .findOneAndUpdate({ _id: id }, data, { new: true })
       .populate('companies')
       .lean()
@@ -103,6 +89,6 @@ export class SpecialityRepository {
 
 
   async delete(id: string): Promise<Speciality> {
-    return this.userModel.findByIdAndDelete(id).exec();
+    return this.specialityModel.findByIdAndDelete(id).exec();
   }
 }

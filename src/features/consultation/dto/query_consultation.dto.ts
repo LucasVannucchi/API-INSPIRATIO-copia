@@ -12,22 +12,27 @@ export class QueryConsultationDto {
   
   @IsEmail()
   @IsString()
-  @ApiProperty({ required: false })
+  @ApiProperty({ required: true })
   doctor: string;
 
   @IsString()
-  patient: string
+  @ApiProperty()
+  patients: String;
+
+  @IsString()
+  @ApiProperty()
+  date: Date
 
   @IsOptional()
   @IsString()
   @ApiProperty({ required: false })
   role?: string;
 
-  @IsOptional()
+  /*@IsOptional()
   @IsEmail()
   @ApiProperty({ required: false })
   email?: string;
-
+*/
   @IsOptional() 
   @IsDate() //Valida que o valor fornecido para o campo é uma data válida (Date).
   @ApiProperty({ required: false }) //Este decorator é específico do Swagger, utilizado para gerar documentação de APIs.

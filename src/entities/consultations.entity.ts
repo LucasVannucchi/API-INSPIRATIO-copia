@@ -4,6 +4,7 @@ import { User } from 'src/types/User';
 import { Speciality } from 'src/types/speciality';
 
 const consultationSchema = new Schema({
+    _id: { type: Schema.Types.ObjectId, required: true, auto: true },
     doctor: {type: Schema.Types.ObjectId, ref: "User"},
     patient: {type: Schema.Types.ObjectId, ref: "User"},
     speciality: {type: Schema.Types.ObjectId, ref: "Speciality"},

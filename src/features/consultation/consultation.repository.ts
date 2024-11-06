@@ -2,37 +2,32 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { User } from 'src/types/User';
+//import { User } from 'src/types/User';
+import { Consultation } from 'src/types/consultation';
 import { CreateConsultationDto } from './dto/create_consultation.dto';
-import { IUserEntity } from 'src/entities/user.entity';
+import { IConsultationEntity } from 'src/entities/consultations.entity';
 import { UpdateConsultationyDto } from './dto/update_consultation.dto';
 import { QueryConsultationDto } from './dto/query_consultation.dto';
-import { ISpecialityEntity } from 'src/entities/speciality.entity';
-import { Speciality } from 'src/types/speciality';
+//import { Speciality } from 'src/types/speciality';
 
 @Injectable()
 export class ConsultationRepository {
   constructor(
-    @InjectModel('User') private readonly specialityModel: Model<IConsultationEntity>,
+    @InjectModel('Consultation') private readonly consultationModel: Model<IConsultationEntity>,
   ) {}
 
-  async createSpeciality(data: CreateConsultationDto): Promise<Speciality> {
-    return this.specialityModel.create(data);
+  async createSpeciality(data: CreateConsultationDto): Promise<Consultation> {
+    return this.consultationModel.create(data);
   }
 
   async findAll(options: QueryConsultationDto) {
     const {
       dateEnd = null,
       dateInit = null,
-      email = '',
       role = '',
     } = options; 
 
     let query = {};
-
-    if (email) {
-      query = { ...query, email: { $regex: new RegExp(email, 'i') } };
-    }
 
 
     if (role) {
@@ -49,13 +44,13 @@ export class ConsultationRepository {
       };
     }
 
-    const data = await this.specialityModel
+    const data = await this.consultationModel
       .find(query)
       .populate('companies')
       .lean()
       .exec();
 
-    const total = await this.specialityModel.countDocuments(query).exec();
+    const total = await this.consultationModel.countDocuments(query).exec();
 
     return { data, total,};
   }
@@ -71,16 +66,16 @@ export class ConsultationRepository {
       .exec();
   }*/
 
-  async findByToken(token: string): Promise<Speciality> {
-    return this.specialityModel.findOne({ passwordResetToken: token }).lean().exec();
+  async findByToken(token: string): Promise<Consultation> {
+    return this.consultationModel.findOne({ passwordResetToken: token }).lean().exec();
   }
 
-  async findById(id: string): Promise<Speciality> {
-    return this.specialityModel.findById(id).populate('companies').lean().exec();
+  async findById(id: string): Promise<Consultation> {
+    return this.consultationModel.findById(id).populate('companies').lean().exec();
   }
 
-  async update(id: string, data: UpdateConsultationyDto): Promise<Speciality> {
-    return this.specialityModel
+  async update(id: string, data: UpdateConsultationyDto): Promise<Consultation> {
+    return this.consultationModel
       .findOneAndUpdate({ _id: id }, data, { new: true })
       .populate('companies')
       .lean()
@@ -88,7 +83,7 @@ export class ConsultationRepository {
   }
 
 
-  async delete(id: string): Promise<Speciality> {
-    return this.specialityModel.findByIdAndDelete(id).exec();
+  async delete(id: string): Promise<Consultation> {
+    return this.consultationModel.findByIdAndDelete(id).exec();
   }
 }

@@ -14,15 +14,15 @@ import { Speciality } from 'src/types/speciality';
 export class SpecialityService {
   constructor(
     private readonly userRepository: UsersRepository,
-    private readonly mailerService: MailerService,
+    //private readonly mailerService: MailerService,
     private readonly specialityRepository: SpecialityRepository 
   ) {}
 
   async create(data: CreateSpecialityDto) {
     try {
-      const user = await this.specialityRepository.createSpeciality(data)
+      const speciality = await this.specialityRepository.createSpeciality(data)
 
-      return user;
+      return speciality;
     } catch (error) {
       throw new HttpException(
         { message: error.message },

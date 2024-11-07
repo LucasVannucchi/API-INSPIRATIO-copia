@@ -34,11 +34,11 @@ export class SpecialityController {
     return this.user.findAll(query);
   }
 
-  @Get('email')
+  /*@Get('email')
   findByEmail(@Query('email') email: string) {
     return this.user.findByEmail(email);
   }
-
+*/
   @Get(':id')
   findById(@Param('id') id: string) {
     return this.user.findById(id);

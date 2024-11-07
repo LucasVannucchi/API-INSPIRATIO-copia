@@ -42,7 +42,7 @@ export class SpecialityService {
     }
   }
 
-  async findByEmail(email: string) {
+  /*async findByEmail(email: string) {
     try {
       return this.userRepository.findByEmail(email);
     } catch (error) {
@@ -52,10 +52,10 @@ export class SpecialityService {
       );
     }
   }
-
+*/
   async findById(id: string) {
     try {
-      return this.userRepository.findById(id);
+      return this.specialityRepository.findById(id);
     } catch (error) {
       throw new HttpException(
         { message: error.message },
@@ -66,7 +66,7 @@ export class SpecialityService {
 
   async update(id: string, data: any) {
     try {
-      return this.userRepository.update(id, data);
+      return this.specialityRepository.update(id, data);
     } catch (error) {
       throw new HttpException(
         { message: error.message },

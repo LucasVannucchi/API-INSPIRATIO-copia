@@ -16,22 +16,25 @@ import { UpdateSpecialityDto } from './dto/update_speciality.dto';
 import { QuerySpecialityDto } from './dto/query_speciality.dto';
 
 
+
 @ApiTags('Users')
 // @UseGuards(JwtAuthGuard)
 @Controller('users')
 export class SpecialityController {
-  constructor(private readonly user: SpecialityService) {}
+  constructor(
+    private readonly speciality: SpecialityService,
+  ) {}
 
   @Post()
   create(@Body() data: CreateSpecialityDto) {
-    return this.user.create(data);
+    return this.speciality.create(data);
   }
 
   // @HasRoles(ImportedRoles.ADMIN)
   // @UseGuards(RolesGuard)
   @Get()
   findAll(@Query() query: QuerySpecialityDto) {
-    return this.user.findAll(query);
+    return this.speciality.findAll(query);
   }
 
   /*@Get('email')
@@ -41,16 +44,16 @@ export class SpecialityController {
 */
   @Get(':id')
   findById(@Param('id') id: string) {
-    return this.user.findById(id);
+    return this.speciality.findById(id);
   }
 
   @Put(':id')
   update(@Param('id') id: string, @Body() data: UpdateSpecialityDto) {
-    return this.user.update(id, data);
+    return this.speciality.update(id, data);
   }
 
   @Delete(':id')
   delete(@Param('id') id: string) {
-    return this.user.delete(id);
+    return this.speciality.delete(id);
   }
 }

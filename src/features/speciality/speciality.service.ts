@@ -18,10 +18,9 @@ export class SpecialityService {
     private readonly specialityRepository: SpecialityRepository 
   ) {}
 
-  async create(data: CreateSpecialityDto) {
-    try {
+  async create(data: CreateSpecialityDto){
+    try{
       const speciality = await this.specialityRepository.createSpeciality(data)
-
       return speciality;
     } catch (error) {
       throw new HttpException(
@@ -29,31 +28,21 @@ export class SpecialityService {
         HttpStatus.BAD_REQUEST,
       );
     }
-  }
+  };
 
-  async findAll(query: QuerySpecialityDto) {
-    try {
-      return this.userRepository.findAll(query);
-    } catch (error) {
+
+  async findAll(query: QuerySpecialityDto){
+    try{
+      return this.specialityRepository.findAll(query)
+    } catch (error){
       throw new HttpException(
-        { message: error.message },
-        HttpStatus.BAD_REQUEST,
+        {message: error.message},
+        HttpStatus.BAD_REQUEST
       );
     }
-  }
+   } 
 
-  /*async findByEmail(email: string) {
-    try {
-      return this.userRepository.findByEmail(email);
-    } catch (error) {
-      throw new HttpException(
-        { message: error.message },
-        HttpStatus.BAD_REQUEST,
-      );
-    }
-  }
-*/
-  async findById(id: string) {
+   async findById(id: string) {
     try {
       return this.specialityRepository.findById(id);
     } catch (error) {
@@ -64,7 +53,7 @@ export class SpecialityService {
     }
   }
 
-  async update(id: string, data: any) {
+  async update(id: string, data: UpdateSpecialityDto) {
     try {
       return this.specialityRepository.update(id, data);
     } catch (error) {
@@ -77,7 +66,7 @@ export class SpecialityService {
 
   async delete(id: string) {
     try {
-      return this.userRepository.delete(id);
+      return this.specialityRepository.delete(id);
     } catch (error) {
       throw new HttpException(
         { message: error.message },

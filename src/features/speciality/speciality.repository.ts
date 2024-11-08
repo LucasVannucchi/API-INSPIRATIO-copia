@@ -51,7 +51,8 @@ export class SpecialityRepository {
 
     const data = await this.specialityModel
       .find(query)
-      .populate('companies')
+      .populate('user')
+      .populate('speciality')
       .lean()
       .exec();
 

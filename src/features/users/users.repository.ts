@@ -87,6 +87,8 @@ export class UsersRepository {
       .exec();
   }
 
+  /*Este método cria um novo usuário no banco de dados usando os
+  dados fornecidos em CreateUser Dto e retorna o usuário criado. */
   async findByToken(token: string): Promise<User> {
     return this.userModel.findOne({ passwordResetToken: token }).lean().exec();
   }

@@ -24,15 +24,10 @@ export class SpecialityRepository {
     const {
       dateEnd = null,
       dateInit = null,
-      email = '',
       role = '',
     } = options; 
 
     let query = {};
-
-    if (email) {
-      query = { ...query, email: { $regex: new RegExp(email, 'i') } };
-    }
 
 
     if (role) {

@@ -8,7 +8,7 @@ export class CreateConsultationDto {
   @IsNotEmpty() //nao pode ir vazia - validando o dado antes de chegar no serviço
   @ApiProperty() // propriedade de API - documentando dentro do swagger
   doctor: string;
-  ref: 'User'
+  
 
   @IsString()
   @IsNotEmpty()

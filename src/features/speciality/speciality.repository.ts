@@ -71,7 +71,7 @@ export class SpecialityRepository {
   }*/
 
   async findById(id: string): Promise<Speciality> {
-    return this.specialityModel.findById(id).populate('companies').lean().exec();
+    return this.specialityModel.findById(id).populate('speciality').lean().exec();
   }
 
   async update(id: string, data: UpdateSpecialityDto): Promise<Speciality> {

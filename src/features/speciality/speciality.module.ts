@@ -6,9 +6,9 @@ import { SpecialityController } from './speciality.controller';
 import { SpecialityRepository } from './speciality.repository';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'User', schema: UserSchema }])],
+  imports: [MongooseModule.forFeature([{ name: 'Speciality', schema: UserSchema }])],
   providers: [SpecialityService, SpecialityRepository],
   controllers: [SpecialityController],
   exports: [SpecialityService],
 })
-export class UsersModule {}
+export class SpecialityModule {}

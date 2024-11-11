@@ -11,6 +11,7 @@ import { AuthModule } from './core/auth/auth.module';
 import { MailsModule } from './features/mails/mails.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { SpecialityModule } from './features/speciality/speciality.module';
 
 @Module({
   imports: [
@@ -61,6 +62,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
     AuthModule,
     UsersModule,
     MailsModule,
+    SpecialityModule
   ],
   controllers: [AppController],
   providers: [AppService],

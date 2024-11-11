@@ -12,7 +12,7 @@ export class QuerySpecialityDto {
 
   @IsString()
   @ApiProperty()
-  nameSpeciality
+  name: string;
   
   @IsEmail()
   @IsString()

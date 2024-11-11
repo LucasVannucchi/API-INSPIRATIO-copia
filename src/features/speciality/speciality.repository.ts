@@ -22,7 +22,7 @@ export class SpecialityRepository {
 
   async findAll(options: QuerySpecialityDto) {
     const {
-      nameSpeciality = '',
+      name = '',
       doctor = '',
       dateEnd = null,
       dateInit = null,

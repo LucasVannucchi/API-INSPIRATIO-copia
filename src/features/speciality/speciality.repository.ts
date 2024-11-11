@@ -70,10 +70,6 @@ export class SpecialityRepository {
       .exec();
   }*/
 
-  async findByToken(token: string): Promise<Speciality> {
-    return this.specialityModel.findOne({ passwordResetToken: token }).lean().exec();
-  }
-
   async findById(id: string): Promise<Speciality> {
     return this.specialityModel.findById(id).populate('companies').lean().exec();
   }
@@ -81,7 +77,7 @@ export class SpecialityRepository {
   async update(id: string, data: UpdateSpecialityDto): Promise<Speciality> {
     return this.specialityModel
       .findOneAndUpdate({ _id: id }, data, { new: true })
-      .populate('companies')
+      .populate('speciality')
       .lean()
       .exec();
   }

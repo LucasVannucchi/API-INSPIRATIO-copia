@@ -20,7 +20,7 @@ import { QuerySpecialityDto } from './dto/query_speciality.dto';
 
 @ApiTags('Speciality')
 // @UseGuards(JwtAuthGuard)
-@Controller('users')
+@Controller('specialities')
 export class SpecialityController {
   constructor(
     private readonly speciality: SpecialityService,

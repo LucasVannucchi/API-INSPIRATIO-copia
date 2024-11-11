@@ -14,18 +14,4 @@ export class CreateSpecialityDto {
   @ApiProperty()
   description: string;
 
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  doctor: String;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  patients: String;
-
-  @IsArray()
-  @IsNotEmpty()
-  @ApiProperty({ enum: Roles, type: 'string', isArray: true })
-  roles: Roles[];
 }

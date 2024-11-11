@@ -11,4 +11,4 @@ import { SpecialityRepository } from './speciality.repository';
   controllers: [SpecialityController],
   exports: [SpecialityService],
 })
-export class UsersModule {}
+export class SpecialityModule {}

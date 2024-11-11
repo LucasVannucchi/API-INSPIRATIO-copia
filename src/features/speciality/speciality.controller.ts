@@ -17,7 +17,8 @@ import { QuerySpecialityDto } from './dto/query_speciality.dto';
 
 
 
-@ApiTags('Users')
+
+@ApiTags('Speciality')
 // @UseGuards(JwtAuthGuard)
 @Controller('users')
 export class SpecialityController {

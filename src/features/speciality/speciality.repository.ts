@@ -13,7 +13,7 @@ import { Speciality } from 'src/types/speciality';
 @Injectable()
 export class SpecialityRepository {
   constructor(
-    @InjectModel('User') private readonly specialityModel: Model<ISpecialityEntity>,
+    @InjectModel('Speciality') private readonly specialityModel: Model<ISpecialityEntity>,
   ) {}
 
   async createSpeciality(data: CreateSpecialityDto): Promise<Speciality> {
@@ -22,12 +22,15 @@ export class SpecialityRepository {
 
   async findAll(options: QuerySpecialityDto) {
     const {
+      nameSpeciality = '',
+      doctor = '',
       dateEnd = null,
       dateInit = null,
       role = '',
     } = options; 
 
     let query = {};
+
 
 
     if (role) {
@@ -46,7 +49,7 @@ export class SpecialityRepository {
 
     const data = await this.specialityModel
       .find(query)
-      .populate('user')
+      .populate('doctor')
       .populate('speciality')
       .lean()
       .exec();

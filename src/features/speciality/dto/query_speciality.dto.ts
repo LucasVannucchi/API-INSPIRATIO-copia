@@ -9,14 +9,15 @@ import {
 
 // Um parâmetro opcional para paginação
 export class QuerySpecialityDto {
+
+  @IsString()
+  @ApiProperty()
+  nameSpeciality
   
   @IsEmail()
   @IsString()
   @ApiProperty({ required: false })
   doctor: string;
-
-  @IsString()
-  patient: string
 
   @IsOptional()
   @IsString()

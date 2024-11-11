@@ -17,7 +17,7 @@ export class CreateSpecialityDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  psyco: String;
+  doctor: String;
 
   @IsString()
   @IsNotEmpty()

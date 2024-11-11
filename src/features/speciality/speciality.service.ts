@@ -13,7 +13,7 @@ import { Speciality } from 'src/types/speciality';
 @Injectable()
 export class SpecialityService {
   constructor(
-    private readonly userRepository: UsersRepository,
+    //private readonly userRepository: UsersRepository,
     //private readonly mailerService: MailerService,
     private readonly specialityRepository: SpecialityRepository 
   ) {}

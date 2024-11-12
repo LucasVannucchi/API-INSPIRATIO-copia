@@ -14,7 +14,6 @@ export class QuerySpecialityDto {
   @ApiProperty()
   name: string;
   
-  @IsEmail()
   @IsString()
   @ApiProperty({ required: false })
   doctor: string;

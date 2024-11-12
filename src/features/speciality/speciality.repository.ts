@@ -59,16 +59,7 @@ export class SpecialityRepository {
     return { data, total,};
   }
 
-  /*async findByEmail(email: string): Promise<Speciality> {
-    return this.userModel
-      .findOne({ email })
-      .select('+password')
-      .select('+passwordResetToken')
-      .select('+passwordResetExpires')
-      .populate('companies')
-      .lean()
-      .exec();
-  }*/
+ 
 
   async findById(id: string): Promise<Speciality> {
     return this.specialityModel.findById(id).populate('speciality').lean().exec();

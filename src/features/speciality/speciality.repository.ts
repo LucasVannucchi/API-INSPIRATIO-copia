@@ -23,7 +23,7 @@ export class SpecialityRepository {
   async findAll(options: QuerySpecialityDto) {
     const {
       name = '',
-      doctor = '',
+      //doctor = '',
       dateEnd = null,
       dateInit = null,
       role = '',

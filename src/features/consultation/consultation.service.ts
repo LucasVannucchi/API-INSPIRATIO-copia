@@ -15,7 +15,7 @@ import { HmacSHA512 } from 'crypto-js';
 export class ConsultationService {
   constructor(
     private readonly userRepository: UsersRepository,
-    private readonly mailerService: MailerService,
+    //private readonly mailerService: MailerService,
     private readonly ConsultationRepository: ConsultationRepository 
   ) {}
 

@@ -9,7 +9,7 @@ import { IsDateString } from 'class-validator';
 export const UserSchema = new Schema({
   _id: { type: Schema.Types.ObjectId, required: true, auto: true },
   name: { type: String, required: true },
-  birth: { type: String, required: false },
+  birthDay: { type: String, required: false },
   cpf: { type: String, required: false },
   rg: { type: String, required: false },
   email: { type: String, required: true, unique: true },
@@ -31,8 +31,11 @@ export const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',  // Referencia o modelo de médico
     required: false,
-    speciality: [{type: Schema.Types.ObjectId, ref: 'Speciality', required: false}],
   }],
+  speciality: [{
+    type: Schema.Types.ObjectId, 
+    ref: 'Speciality', 
+    required: false}],
   address: {
     street: { type: String },
     number: { type: Number },

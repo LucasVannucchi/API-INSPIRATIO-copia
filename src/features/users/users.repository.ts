@@ -98,6 +98,7 @@ export class UsersRepository {
       .populate('patients')
       .populate('doctors')
       .populate('responsible')
+      .populate('speciality')
       .lean()
       .exec();
   }

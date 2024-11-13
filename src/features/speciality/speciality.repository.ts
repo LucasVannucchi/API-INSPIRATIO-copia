@@ -57,7 +57,13 @@ export class SpecialityRepository {
  
 
   async findById(id: string): Promise<Speciality> {
-    return this.specialityModel.findById(id).populate('speciality').lean().exec();
+    return this.specialityModel
+    .findById(id)
+    .select('name')
+    .select('description')
+    .lean()
+    .exec();
+    
   }
 
   async update(id: string, data: UpdateSpecialityDto): Promise<Speciality> {

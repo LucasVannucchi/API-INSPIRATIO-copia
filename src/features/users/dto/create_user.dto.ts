@@ -63,6 +63,11 @@ export class CreateUserDto {
   @IsArray()
   @ApiProperty()
   patients: string[];
+
+  @IsOptional()
+  @IsArray()
+  @ApiProperty()
+  consultation: string[];
   
   
   @IsArray()

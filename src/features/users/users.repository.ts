@@ -99,6 +99,7 @@ export class UsersRepository {
       .populate('doctors')
       .populate('responsible')
       .populate('speciality')
+      .select('Consultation')
       .lean()
       .exec();
   }

@@ -50,6 +50,7 @@ export class ConsultationRepository {
       .populate('patient')
       .populate('date')
       .populate('observation')
+      .populate('Consultation')
       .lean()
       .exec();
 

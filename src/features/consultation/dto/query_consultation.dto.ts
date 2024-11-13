@@ -10,7 +10,7 @@ import {
 // Um parâmetro opcional para paginação
 export class QueryConsultationDto {
   
-  @IsEmail()
+  
   @IsString()
   @ApiProperty({ required: true })
   doctor: string;

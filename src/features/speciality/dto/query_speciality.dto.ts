@@ -13,10 +13,6 @@ export class QuerySpecialityDto {
   @IsString()
   @ApiProperty()
   name: string;
-  
-  @IsString()
-  @ApiProperty({ required: false })
-  doctor: string;
 
   @IsOptional()
   @IsString()

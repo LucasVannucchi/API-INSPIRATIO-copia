@@ -23,7 +23,6 @@ export class SpecialityRepository {
   async findAll(options: QuerySpecialityDto) {
     const {
       name = '',
-      //doctor = '',
       dateEnd = null,
       dateInit = null,
       role = '',
@@ -49,7 +48,7 @@ export class SpecialityRepository {
 
     const data = await this.specialityModel
       .find(query)
-      .populate('doctor')
+      //.populate('doctor')
       .populate('speciality')
       .lean()
       .exec();

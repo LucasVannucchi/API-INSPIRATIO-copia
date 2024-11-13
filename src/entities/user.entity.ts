@@ -1,9 +1,11 @@
 import { Schema, Document } from 'mongoose';
 import { Roles, UserTypes } from '../types/Roles';
 import { User } from '../types/User';
+import { Speciality } from 'src/types/speciality';
 import { HmacSHA512 } from 'crypto-js';
 import { userInfo } from 'os';
 import { UserValidator } from 'src/core/auth/validators/validate-user.validator';
+import { spec } from 'node:test/reporters';
 
 export const UserSchema = new Schema({
   _id: { type: Schema.Types.ObjectId, required: true, auto: true },
@@ -15,7 +17,7 @@ export const UserSchema = new Schema({
   phone: { type: String, required: true },
   password: { type: String, required: false, select: false },
   passwordResetToken: { type: String, required: false, select: false },
-  type: [{ type: String, default: 'user', enum: UserTypes, required: true }],
+  type: [{ type: String, default: 'User', enum: UserTypes, required: true }],
   patients: [{ 
     type: Schema.Types.ObjectId, 
     ref: 'User',  // Referencia o modelo de paciente
@@ -30,8 +32,9 @@ export const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',  // Referencia o modelo de médico
     required: false,
-    speciality: [{type: Schema.Types.ObjectId, required: true, ref:'Speciality'}]
+    speciality: { type: String, required: false, ref:'Speciality'}
   }],
+  
   address: {
     street: { type: String },
     number: { type: Number },
@@ -42,7 +45,9 @@ export const UserSchema = new Schema({
     zipcode: { type: String },
   },
   roles: [{ type: String, enum: Roles, default: Roles.USER, required: true }],
+    
 });
+
 
 // Middleware de pré-salvamento
 /* - Se o campo de senha estiver presente, o middleware gera um hash criptografado usando HMAC-SHA512, com um valor "salt"

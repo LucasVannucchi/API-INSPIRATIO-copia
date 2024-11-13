@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsDateString, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 import { Schema, Types } from 'mongoose';
 import { AddressDto } from 'src/commons/dtos/Address.dto';
 import { Roles, UserTypes } from 'src/types/Roles';
@@ -15,10 +15,9 @@ export class CreateUserDto {
   @ApiProperty()
   cpf?: string;
 
-  @IsNumber()
-  @IsNotEmpty()
-  @ApiProperty()
-  dataBirthday: Date;
+  @IsOptional()  // Opcional para permitir ausência do campo
+  @IsDateString() // Valida que a data está no formato ISO
+  birthDate?: string; // Definido como string para compatibilidade com o formato ISO
 
   @IsString()
   @IsOptional()

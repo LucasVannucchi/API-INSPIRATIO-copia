@@ -17,7 +17,7 @@ export class CreateUserDto {
 
   @IsOptional()  // Opcional para permitir ausência do campo
   @IsDateString() // Valida que a data está no formato ISO
-  birthDate?: string; // Definido como string para compatibilidade com o formato ISO
+  birth?: string; // Definido como string para compatibilidade com o formato ISO
 
   @IsString()
   @IsOptional()

@@ -9,7 +9,7 @@ import { Doc } from 'prettier';
 export interface User {
   _id?: string;
   name: string;
-  dataBirthday: Date;
+  birth: Date;
   cpf: string;
   rg?: string;
   email: string;

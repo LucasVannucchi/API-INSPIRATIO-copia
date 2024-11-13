@@ -32,8 +32,8 @@ export class UsersController {
     return this.user.create(data);
   }
 
-  // @HasRoles(ImportedRoles.ADMIN)
-  // @UseGuards(RolesGuard)
+  // @HasRoles(ImportedRoles.ADMIN) - nivel admin
+  // @UseGuards(RolesGuard) - admin
   @Get()
   findAll(@Query() query: QueryDto) {
     return this.user.findAll(query);

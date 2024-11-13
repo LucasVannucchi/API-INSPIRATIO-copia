@@ -18,7 +18,7 @@ export class CreateUserDto {
   @IsNumber()
   @IsNotEmpty()
   @ApiProperty()
-  dataBirthday: number;
+  dataBirthday: Date;
 
   @IsString()
   @IsOptional()

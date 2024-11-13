@@ -66,9 +66,8 @@ export class ConsultationRepository {
 
   async findById(id: string): Promise<Consultation> {
     return this.consultationModel.findById(id)
-    .select('doctor')
-    .select('patient')
-    .select('date')
+    .populate('doctor')
+    .populate('patient')
     .lean().exec();
   }
 

@@ -12,7 +12,7 @@ export class CreateConsultationDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  patients: String;
+  patient: String;
 
   @IsString()
   @IsNotEmpty()

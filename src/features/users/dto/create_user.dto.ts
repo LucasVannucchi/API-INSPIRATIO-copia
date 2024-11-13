@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { Types } from 'mongoose';
+import { IsArray, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import { Schema, Types } from 'mongoose';
 import { AddressDto } from 'src/commons/dtos/Address.dto';
 import { Roles, UserTypes } from 'src/types/Roles';
 
@@ -14,6 +14,11 @@ export class CreateUserDto {
   @IsOptional()
   @ApiProperty()
   cpf?: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  @ApiProperty()
+  dataBirthday: number;
 
   @IsString()
   @IsOptional()
@@ -47,12 +52,18 @@ export class CreateUserDto {
   @IsOptional()
   @IsArray()
   @ApiProperty()
+  speciality: string[];
+
+  @IsOptional()
+  @IsArray()
+  @ApiProperty()
   responsible: string[];
 
   @IsOptional()
   @IsArray()
   @ApiProperty()
   patients: string[];
+  
   
   @IsArray()
   @IsNotEmpty()

@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-
-import { User } from 'src/types/User';
 import { CreateSpecialityDto } from './dto/create_speciality.dto';
-import { IUserEntity } from 'src/entities/user.entity';
 import { UpdateSpecialityDto } from './dto/update_speciality.dto';
 import { QuerySpecialityDto } from './dto/query_speciality.dto';
 import { ISpecialityEntity } from 'src/entities/speciality.entity';
@@ -48,7 +45,6 @@ export class SpecialityRepository {
 
     const data = await this.specialityModel
       .find(query)
-      //.populate('doctor')
       .populate('speciality')
       .lean()
       .exec();

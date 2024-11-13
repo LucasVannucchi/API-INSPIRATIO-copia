@@ -30,8 +30,8 @@ export const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',  // Referencia o modelo de médico
     required: false,
+    speciality: [{type: Schema.Types.ObjectId, ref: 'Speciality', required: false}],
   }],
-  speciality: [{type: Schema.Types.ObjectId, ref: 'Speciality', required: false}],
   address: {
     street: { type: String },
     number: { type: Number },

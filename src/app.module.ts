@@ -12,6 +12,7 @@ import { MailsModule } from './features/mails/mails.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { SpecialityModule } from './features/speciality/speciality.module';
+import { ConsultationModule } from './features/consultation/consultation.module';
 
 @Module({
   imports: [
@@ -62,7 +63,8 @@ import { SpecialityModule } from './features/speciality/speciality.module';
     AuthModule,
     UsersModule,
     MailsModule,
-    SpecialityModule
+    SpecialityModule,
+    ConsultationModule
   ],
   controllers: [AppController],
   providers: [AppService],

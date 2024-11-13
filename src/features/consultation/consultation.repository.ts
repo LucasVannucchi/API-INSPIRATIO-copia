@@ -46,7 +46,10 @@ export class ConsultationRepository {
 
     const data = await this.consultationModel
       .find(query)
-      .populate('companies')
+      .populate('doctor')
+      .populate('patient')
+      .populate('date')
+      .populate('observation')
       .lean()
       .exec();
 
@@ -55,29 +58,23 @@ export class ConsultationRepository {
     return { data, total,};
   }
 
-  /*async findByEmail(email: string): Promise<Speciality> {
-    return this.userModel
-      .findOne({ email })
-      .select('+password')
-      .select('+passwordResetToken')
-      .select('+passwordResetExpires')
-      .populate('companies')
-      .lean()
-      .exec();
-  }*/
 
   async findByToken(token: string): Promise<Consultation> {
     return this.consultationModel.findOne({ passwordResetToken: token }).lean().exec();
   }
 
   async findById(id: string): Promise<Consultation> {
-    return this.consultationModel.findById(id).populate('companies').lean().exec();
+    return this.consultationModel.findById(id)
+    .select('doctor')
+    .select('patient')
+    .select('date')
+    .lean().exec();
   }
 
   async update(id: string, data: UpdateConsultationyDto): Promise<Consultation> {
     return this.consultationModel
       .findOneAndUpdate({ _id: id }, data, { new: true })
-      .populate('companies')
+      .populate('consultation')
       .lean()
       .exec();
   }

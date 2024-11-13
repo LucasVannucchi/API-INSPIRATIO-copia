@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { User } from 'src/types/User';
-import { Roles } from 'src/types/Roles';
+import { IsArray, IsDateString, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+
 
 export class CreateConsultationDto {
   @IsString() //precisa ser string - validando o dado antes de chegar no serviço
@@ -15,30 +14,25 @@ export class CreateConsultationDto {
   @ApiProperty()
   patients: String;
 
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  speciality: String;
+
   
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  description: string;
+  observation: string;
 
-  @IsString()
+  @IsDateString()
   @IsNotEmpty()
   @ApiProperty()
-  speciality: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  date: Date;
+  date: String;
 
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
   status: string
 
-
-  @IsArray()
-  @IsNotEmpty()
-  @ApiProperty({ enum: Roles, type: 'string', isArray: true })
-  roles: Roles[]; 
 }

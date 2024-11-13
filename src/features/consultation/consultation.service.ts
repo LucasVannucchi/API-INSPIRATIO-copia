@@ -5,17 +5,13 @@ import { MailerService } from '@nestjs-modules/mailer';
 import { Consultation } from 'src/types/consultation';
 import { CreateConsultationDto } from './dto/create_consultation.dto';
 import { ConsultationRepository } from './consultation.repository';
-import { UsersRepository } from '../users/users.repository';
-import { UpdateConsultationyDto } from './dto/update_consultation.dto';
+
 import { QueryConsultationDto } from './dto/query_consultation.dto';
-import { HmacSHA512 } from 'crypto-js';
 //import { Speciality } from 'src/types/speciality';
 
 @Injectable()
 export class ConsultationService {
   constructor(
-    private readonly userRepository: UsersRepository,
-    //private readonly mailerService: MailerService,
     private readonly ConsultationRepository: ConsultationRepository 
   ) {}
 
@@ -34,7 +30,7 @@ export class ConsultationService {
 
   async findAll(query: QueryConsultationDto) {
     try {
-      return this.userRepository.findAll(query);
+      return this.ConsultationRepository.findAll(query);
     } catch (error) {
       throw new HttpException(
         { message: error.message },
@@ -43,20 +39,10 @@ export class ConsultationService {
     }
   }
 
-  async findByEmail(email: string) {
-    try {
-      return this.userRepository.findByEmail(email);
-    } catch (error) {
-      throw new HttpException(
-        { message: error.message },
-        HttpStatus.BAD_REQUEST,
-      );
-    }
-  }
 
   async findById(id: string) {
     try {
-      return this.userRepository.findById(id);
+      return this.ConsultationRepository.findById(id);
     } catch (error) {
       throw new HttpException(
         { message: error.message },
@@ -67,7 +53,7 @@ export class ConsultationService {
 
   async update(id: string, data: any) {
     try {
-      return this.userRepository.update(id, data);
+      return this.ConsultationRepository.update(id, data);
     } catch (error) {
       throw new HttpException(
         { message: error.message },
@@ -78,7 +64,7 @@ export class ConsultationService {
 
   async delete(id: string) {
     try {
-      return this.userRepository.delete(id);
+      return this.ConsultationRepository.delete(id);
     } catch (error) {
       throw new HttpException(
         { message: error.message },

@@ -36,6 +36,11 @@ export const UserSchema = new Schema({
     type: Schema.Types.ObjectId, 
     ref: 'Speciality', 
     required: false}],
+  consultation: [{
+    type:Schema.Types.ObjectId,
+    ref: 'Consultation',
+    required: false
+  }],
   address: {
     street: { type: String },
     number: { type: Number },

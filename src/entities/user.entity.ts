@@ -46,7 +46,8 @@ export const UserSchema = new Schema({
     state: { type: String },
     zipcode: { type: String },
   },
-  roles: [{ type: String, enum: Roles, default: Roles.USER, required: true }],
+  roles: [{ type: String, enum: Roles, default: Roles.USER || Roles.ADMIN, required: true }],
+  isAdmin: {type: Boolean, default: Roles.ADMIN}
 });
 
 // Middleware de pré-salvamento

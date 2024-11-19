@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
@@ -7,6 +7,7 @@ import { CreateUserDto } from './dto/create_user.dto';
 import { IUserEntity } from 'src/entities/user.entity';
 import { UpdateUserDto } from './dto/update_user.dto';
 import { QueryDto } from './dto/query_user.dto';
+import { Roles } from 'src/types/Roles';
 
 @Injectable()
 export class UsersRepository {
@@ -14,7 +15,21 @@ export class UsersRepository {
     @InjectModel('User') private readonly userModel: Model<IUserEntity>,
   ) { }
 
+  async findAdmin(): Promise<User | null> {
+    return this.userModel.findOne({ roles: { $in: [Roles.ADMIN] } }).lean().exec();
+  }
+
   async createUser(data: CreateUserDto): Promise<User> {
+    if (data.roles.includes(Roles.ADMIN)) {
+      const existingAdmin = await this.findAdmin();
+      if (existingAdmin) {
+        throw new HttpException(
+          { message: 'Já existe um usuário administrador no sistema.' },
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+    }
+
     return this.userModel.create(data);
   }
 

@@ -9,6 +9,7 @@ import { QueryDto } from './dto/query_user.dto';
 import { HmacSHA512 } from 'crypto-js';
 import { RedefinePassDto } from './dto/redefine-pass.dto copy';
 import { User } from 'src/types/User';
+import { Roles } from 'src/types/Roles';
 
 @Injectable()
 export class UserService {
@@ -19,6 +20,17 @@ export class UserService {
 
   async create(data: CreateUserDto) {
     try {
+    
+      if(data.roles.includes(Roles.ADMIN)){
+        const existingAdmin = await this.userRepository.findAdmin();
+
+        if (existingAdmin) {
+          throw new HttpException(
+            { message: 'There is already an administrator user in the system.' },
+            HttpStatus.BAD_REQUEST,
+          );
+        }
+      }
       const user = await this.userRepository.createUser(data);
 
       await this.passwordResetToken(user, true);

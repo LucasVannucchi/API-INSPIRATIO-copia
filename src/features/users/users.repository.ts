@@ -80,7 +80,7 @@ export class UsersRepository {
       .skip(skip)
       .limit(limit)
       .populate('patients')
-      .populate('doctor')
+      .populate('doctors')
       .populate('responsible')
       .lean()
       .exec();

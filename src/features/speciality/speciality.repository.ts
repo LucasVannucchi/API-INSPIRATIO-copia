@@ -45,7 +45,6 @@ export class SpecialityRepository {
 
     const data = await this.specialityModel
       .find(query)
-      .populate('speciality')
       .lean()
       .exec();
 

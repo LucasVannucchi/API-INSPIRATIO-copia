@@ -16,7 +16,9 @@ export class UsersRepository {
   ) { }
 
   async findAdmin(): Promise<User | null> {
-    return this.userModel.findOne({ roles: { $in: [Roles.ADMIN] } }).lean().exec();
+    return this.userModel.findOne({ roles: { $in: [Roles.ADMIN] } })
+    .lean()
+    .exec();
   }
 
   async createUser(data: CreateUserDto): Promise<User> {

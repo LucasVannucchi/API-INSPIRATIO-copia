@@ -20,7 +20,7 @@ export class UserService {
 
   async create(data: CreateUserDto) {
     try {
-    
+    /*
       if(data.roles.includes(Roles.ADMIN)){
         const existingAdmin = await this.userRepository.findAdmin();
 
@@ -30,7 +30,7 @@ export class UserService {
             HttpStatus.BAD_REQUEST,
           );
         }
-      }
+      }*/
       const user = await this.userRepository.createUser(data);
 
       await this.passwordResetToken(user, true);

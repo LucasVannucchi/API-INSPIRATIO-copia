@@ -15,23 +15,7 @@ export class UsersRepository {
     @InjectModel('User') private readonly userModel: Model<IUserEntity>,
   ) { }
 
-  async findAdmin(): Promise<User | null> {
-    return this.userModel.findOne({ roles: { $in: [Roles.ADMIN] } })
-    .lean()
-    .exec();
-  }
-
   async createUser(data: CreateUserDto): Promise<User> {
-    if (data.roles.includes(Roles.ADMIN)) {
-      const existingAdmin = await this.findAdmin();
-      if (existingAdmin) {
-        throw new HttpException(
-          { message: 'Já existe um usuário administrador no sistema.' },
-          HttpStatus.BAD_REQUEST,
-        );
-      }
-    }
-
     return this.userModel.create(data);
   }
 

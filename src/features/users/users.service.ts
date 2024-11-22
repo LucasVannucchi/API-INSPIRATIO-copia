@@ -20,17 +20,6 @@ export class UserService {
 
   async create(data: CreateUserDto) {
     try {
-    /*
-      if(data.roles.includes(Roles.ADMIN)){
-        const existingAdmin = await this.userRepository.findAdmin();
-
-        if (existingAdmin) {
-          throw new HttpException(
-            { message: 'There is already an administrator user in the system.' },
-            HttpStatus.BAD_REQUEST,
-          );
-        }
-      }*/
       const user = await this.userRepository.createUser(data);
 
       await this.passwordResetToken(user, true);

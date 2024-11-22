@@ -47,7 +47,6 @@ export const UserSchema = new Schema({
     zipcode: { type: String },
   },
   roles: [{ type: String, enum: Roles, default: Roles.USER || Roles.ADMIN, required: true }],
-  isAdmin: {type: Boolean, default: Roles.ADMIN}
 });
 
 // Middleware de pré-salvamento

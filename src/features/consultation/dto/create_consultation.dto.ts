@@ -33,6 +33,6 @@ export class CreateConsultationDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  status: string
+  status: string[]
 
 }

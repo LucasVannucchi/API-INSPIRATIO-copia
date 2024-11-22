@@ -31,10 +31,6 @@ export class UserValidator {
       );
     }
 
-    if (user.roles.includes(Roles.ADMIN)){
-      return user;
-    }
-
     return user;
   }
 

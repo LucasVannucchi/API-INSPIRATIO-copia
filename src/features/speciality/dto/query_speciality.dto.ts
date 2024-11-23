@@ -9,10 +9,10 @@ import {
 
 // Um parâmetro opcional para paginação
 export class QuerySpecialityDto {
-
+  @IsOptional()
   @IsString()
   @ApiProperty()
-  name: string;
+  name?: string;
 
   @IsOptional()
   @IsString()

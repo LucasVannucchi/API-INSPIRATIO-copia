@@ -1,28 +1,28 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
   IsDate,
-  IsEmail,
-  IsNumberString,
   IsOptional,
   IsString,
 } from 'class-validator';
 
 // Um parâmetro opcional para paginação
 export class QueryConsultationDto {
-  
-  
-  @IsString()
-  @ApiProperty({ required: true })
-  doctor: string;
-
+  @IsOptional()
   @IsString()
   @ApiProperty()
-  patients: String;
+  doctor?: string;
 
+  @IsOptional()
   @IsString()
   @ApiProperty()
-  speciality: String;
+  patients?: string;
 
+  @IsOptional()
+  @IsString()
+  @ApiProperty()
+  speciality?: string;
+
+  @IsOptional()
   @IsString()
   @ApiProperty()
   date: Date
@@ -41,6 +41,4 @@ export class QueryConsultationDto {
   @IsDate()
   @ApiProperty({ required: false })
   dateEnd?: Date; // representariam o intervalo de tempo para filtrar os resultados.
-
-
-}
+  }

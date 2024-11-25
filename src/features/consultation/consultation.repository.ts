@@ -48,9 +48,7 @@ export class ConsultationRepository {
       .find(query)
       .populate('doctor')
       .populate('patient')
-      .populate('date')
-      .populate('observation')
-      .populate('Consultation')
+      .populate('speciality')
       .lean()
       .exec();
 

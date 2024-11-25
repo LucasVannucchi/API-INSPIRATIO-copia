@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsDateString, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsDateString, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 
 export class CreateConsultationDto {
@@ -8,31 +8,28 @@ export class CreateConsultationDto {
   @ApiProperty() // propriedade de API - documentando dentro do swagger
   doctor: string;
   
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  patient: string;
 
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  patient: String;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  speciality: String;
-
-  
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  observation: string;
+  speciality: string;
 
   @IsDateString()
   @IsNotEmpty()
   @ApiProperty()
-  date: String;
+  date: Date | string;
 
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  status: string[]
+  status: string;
 
+  @IsString()
+  @IsOptional()
+  @ApiProperty()
+  observation?: string;
 }

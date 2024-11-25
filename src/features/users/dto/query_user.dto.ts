@@ -33,6 +33,11 @@ export class QueryDto {
   @IsString()
   @ApiProperty({ required: false })
   role?: string;
+  
+  @IsOptional()
+  @IsString()
+  @ApiProperty({ required: false })
+  type?: string;
 
   @IsOptional()
   @IsEmail()

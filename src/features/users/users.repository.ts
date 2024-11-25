@@ -29,6 +29,7 @@ export class UsersRepository {
       dateInit = null,
       email = '',
       role = '',
+      type = '',
     } = options;
     const skip = (page - 1) * limit;
     let query = {};
@@ -47,6 +48,10 @@ export class UsersRepository {
 
     if (role) {
       query = { ...query, roles: { $in: role } };
+    }
+
+    if (type) {
+      query = { ...query, type: { $in: type } };
     }
 
     if (dateInit && dateEnd) {

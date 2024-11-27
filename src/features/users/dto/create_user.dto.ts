@@ -31,9 +31,9 @@ export class CreateUserDto {
   email: string;
 
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   @ApiProperty()
-  phone: string;
+  phone?: string;
 
   @IsString()
   @IsOptional()

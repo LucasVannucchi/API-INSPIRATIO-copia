@@ -13,7 +13,7 @@ export const UserSchema = new Schema({
   cpf: { type: String, required: false },
   rg: { type: String, required: false },
   email: { type: String, required: true, unique: true },
-  phone: { type: String, required: true },
+  phone: { type: String },
   password: { type: String, required: false, select: false },
   passwordResetToken: { type: String, required: false, select: false },
   type: [{ type: String, default: 'user', enum: UserTypes, required: true }],

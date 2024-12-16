@@ -14,6 +14,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
 import { SpecialityModule } from './features/speciality/speciality.module';
 import { ConsultationModule } from './features/consultation/consultation.module';
 import { FunctionalIndependencyMetricsModule } from './features/functionalIndependencyMetrics/functionalIndependencyMetrics.module';
+import { childhoodAutismRatingScaleModule } from './features/childhoodAutismRatingScale/childhoodAutismRatingScale.module';
 
 @Module({
   imports: [
@@ -67,6 +68,8 @@ import { FunctionalIndependencyMetricsModule } from './features/functionalIndepe
     SpecialityModule,
     ConsultationModule,
     FunctionalIndependencyMetricsModule,
+    childhoodAutismRatingScaleModule
+    
   ],
   controllers: [AppController],
   providers: [AppService],

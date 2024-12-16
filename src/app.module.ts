@@ -13,6 +13,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { SpecialityModule } from './features/speciality/speciality.module';
 import { ConsultationModule } from './features/consultation/consultation.module';
+import { FunctionalIndependencyMetricsModule } from './features/functionalIndependencyMetrics/functionalIndependencyMetrics.module';
 
 @Module({
   imports: [
@@ -64,7 +65,8 @@ import { ConsultationModule } from './features/consultation/consultation.module'
     UsersModule,
     MailsModule,
     SpecialityModule,
-    ConsultationModule
+    ConsultationModule,
+    FunctionalIndependencyMetricsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

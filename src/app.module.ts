@@ -15,6 +15,9 @@ import { SpecialityModule } from './features/speciality/speciality.module';
 import { ConsultationModule } from './features/consultation/consultation.module';
 import { FunctionalIndependencyMetricsModule } from './features/functionalIndependencyMetrics/functionalIndependencyMetrics.module';
 import { childhoodAutismRatingScaleModule } from './features/childhoodAutismRatingScale/childhoodAutismRatingScale.module';
+import { FeaturesModule } from './modified-checklist-for-autism-in-toddlers/features/features.module';
+import { SourceModule } from './features/source/source.module';
+import { ModifiedChecklistForAutismInToddlersModule } from './features/modified-checklist-for-autism-in-toddlers/modified-checklist-for-autism-in-toddlers.module';
 
 @Module({
   imports: [
@@ -68,7 +71,10 @@ import { childhoodAutismRatingScaleModule } from './features/childhoodAutismRati
     SpecialityModule,
     ConsultationModule,
     FunctionalIndependencyMetricsModule,
-    childhoodAutismRatingScaleModule
+    childhoodAutismRatingScaleModule,
+    FeaturesModule,
+    SourceModule,
+    ModifiedChecklistForAutismInToddlersModule
     
   ],
   controllers: [AppController],

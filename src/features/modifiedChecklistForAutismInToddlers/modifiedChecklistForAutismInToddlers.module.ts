@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { ModifiedChecklistForAutismInToddlersService } from './modified-checklist-for-autism-in-toddlers.service';
-import { ModifiedChecklistForAutismInToddlersController } from './modified-checklist-for-autism-in-toddlers.controller';
+import { ModifiedChecklistForAutismInToddlersService } from './modifiedChecklistForAutismInToddlers.service';
+import { ModifiedChecklistForAutismInToddlersController } from './modifiedChecklistForAutismInToddlers.controller';
 
 @Module({
   controllers: [ModifiedChecklistForAutismInToddlersController],

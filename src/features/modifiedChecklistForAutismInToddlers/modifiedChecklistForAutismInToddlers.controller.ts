@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ModifiedChecklistForAutismInToddlersService } from './modified-checklist-for-autism-in-toddlers.service';
-import { CreateModifiedChecklistForAutismInToddlerDto } from './dto/create-modified-checklist-for-autism-in-toddler.dto';
-import { UpdateModifiedChecklistForAutismInToddlerDto } from './dto/update-modified-checklist-for-autism-in-toddler.dto';
+import { ModifiedChecklistForAutismInToddlersService } from './modifiedChecklistForAutismInToddlers.service';
+import { CreateModifiedChecklistForAutismInToddlerDto } from './dto/modifiedChecklistForAutismInToddlersCreate.dto';
+import { UpdateModifiedChecklistForAutismInToddlerDto } from './dto/modifiedChecklistForAutismInToddlersUpdate.dto';
 
 @Controller('modified-checklist-for-autism-in-toddlers')
 export class ModifiedChecklistForAutismInToddlersController {

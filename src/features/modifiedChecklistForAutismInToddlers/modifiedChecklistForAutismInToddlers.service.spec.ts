@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ModifiedChecklistForAutismInToddlersService } from './modified-checklist-for-autism-in-toddlers.service';
+import { ModifiedChecklistForAutismInToddlersService } from './modifiedChecklistForAutismInToddlers.service';
 
 describe('ModifiedChecklistForAutismInToddlersService', () => {
   let service: ModifiedChecklistForAutismInToddlersService;

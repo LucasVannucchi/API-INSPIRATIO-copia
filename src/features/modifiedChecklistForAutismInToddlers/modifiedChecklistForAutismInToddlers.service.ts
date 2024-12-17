@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateModifiedChecklistForAutismInToddlerDto } from './dto/create-modified-checklist-for-autism-in-toddler.dto';
-import { UpdateModifiedChecklistForAutismInToddlerDto } from './dto/update-modified-checklist-for-autism-in-toddler.dto';
+import { CreateModifiedChecklistForAutismInToddlerDto } from './dto/modifiedChecklistForAutismInToddlersCreate.dto';
+import { UpdateModifiedChecklistForAutismInToddlerDto } from './dto/modifiedChecklistForAutismInToddlersUpdate.dto';
 
 @Injectable()
 export class ModifiedChecklistForAutismInToddlersService {

@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ChecklistBehaviorAutisticService } from './checklistBehaviorAutistic.service';
-import { CreateChecklistBehaviorAutisticDto } from './dto/create-checklist-behavior-autistic.dto';
-import { UpdateChecklistBehaviorAutisticDto } from './dto/update-checklist-behavior-autistic.dto';
+import { CreateChecklistBehaviorAutisticDto } from './dto/checklistBehaviorAutisticCreate.dto';
+import { UpdateChecklistBehaviorAutisticDto } from './dto/checklistBehaviorAutisticUpdate.dto';
 
 @Controller('checklist-behavior-autistic')
 export class ChecklistBehaviorAutisticController {

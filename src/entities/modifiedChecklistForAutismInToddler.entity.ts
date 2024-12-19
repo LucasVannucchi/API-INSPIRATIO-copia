@@ -1,6 +1,6 @@
 import { Schema, Document } from 'mongoose';
 import { IFunctionalIndependencyMetric } from "../features/functionalIndependencyMetrics/types/functionalIndependecyMetrics";
-import { IchildhoodAutismRatingScale } from 'src/features/childhoodAutismRatingScale/types/childhoodAutismRatingScale';
+import { ImodifiedChecklistForAutismInToddlers } from 'src/features/modifiedChecklistForAutismInToddlers/types/modifiedChecklistForAutismInToddlers';
 
 export const modifiedChecklistForAutismInToddler = new Schema({
   _id: { type: Schema.Types.ObjectId, required: true, auto: true },
@@ -27,4 +27,4 @@ export const modifiedChecklistForAutismInToddler = new Schema({
   }
 });
 
-export interface ICars extends Omit<IchildhoodAutismRatingScale, '_id'>, Document { }
+export interface ImodifiedChecklistForAutismInToddlersEntity extends Omit<ImodifiedChecklistForAutismInToddlers, '_id'>, Document { }

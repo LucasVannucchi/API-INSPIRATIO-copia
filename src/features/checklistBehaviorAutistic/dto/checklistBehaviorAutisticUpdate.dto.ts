@@ -1,4 +1,4 @@
 import { PartialType } from '@nestjs/swagger';
-import { CreateChecklistBehaviorAutisticDto } from './create-checklist-behavior-autistic.dto';
+import { CreateChecklistBehaviorAutisticDto } from './checklistBehaviorAutisticCreate.dto';
 
 export class UpdateChecklistBehaviorAutisticDto extends PartialType(CreateChecklistBehaviorAutisticDto) {}

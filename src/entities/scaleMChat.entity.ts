@@ -1,5 +1,5 @@
 import { Schema, Document } from 'mongoose';
-import { IscaleMChat } from 'src/features/scale-mchat/Types/scaleMChat';
+import { IscaleMChat } from 'src/features/scaleMChat/Types/scaleMChat';
 
 export const scaleMChat = new Schema({
   questionsReports: {

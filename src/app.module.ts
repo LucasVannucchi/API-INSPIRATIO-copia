@@ -17,6 +17,7 @@ import { FunctionalIndependencyMetricsModule } from './features/functionalIndepe
 import { childhoodAutismRatingScaleModule } from './features/childhoodAutismRatingScale/childhoodAutismRatingScale.module';
 import { ModifiedChecklistForAutismInToddlersModule } from './features/modifiedChecklistForAutismInToddlers/modifiedChecklistForAutismInToddlers.module';
 import { ChecklistBehaviorAutisticModule } from './features/checklistBehaviorAutistic/checklistBehaviorAutistic.module';
+import { ScaleAsrsModule } from './features/scale-asrs/scaleAsrs.module';
 
 @Module({
   imports: [
@@ -72,7 +73,8 @@ import { ChecklistBehaviorAutisticModule } from './features/checklistBehaviorAut
     FunctionalIndependencyMetricsModule,
     childhoodAutismRatingScaleModule,
     ModifiedChecklistForAutismInToddlersModule,
-    ChecklistBehaviorAutisticModule
+    ChecklistBehaviorAutisticModule,
+    ScaleAsrsModule
     
   ],
   controllers: [AppController],

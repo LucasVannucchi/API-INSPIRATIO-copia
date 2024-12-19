@@ -17,7 +17,7 @@ import { FunctionalIndependencyMetricsModule } from './features/functionalIndepe
 import { childhoodAutismRatingScaleModule } from './features/childhoodAutismRatingScale/childhoodAutismRatingScale.module';
 import { ModifiedChecklistForAutismInToddlersModule } from './features/modifiedChecklistForAutismInToddlers/modifiedChecklistForAutismInToddlers.module';
 import { ChecklistBehaviorAutisticModule } from './features/checklistBehaviorAutistic/checklistBehaviorAutistic.module';
-import { ScaleAsrsModule } from './features/scale-asrs/scaleAsrs.module';
+import { ScaleAsrsModule } from './features/scaleAsrs/scaleAsrs.module';
 import { ScaleMchatModule } from './features/scale-mchat/scaleMChat.module';
 
 @Module({

@@ -1,7 +1,7 @@
 import { Schema, Document } from 'mongoose';
 import { IscaleASRS } from 'src/features/scaleASRS/Types/scaleASRS';
 
-export const checklistBehaviorAutistic = new Schema({
+export const scaleASRS = new Schema({
   _id: { type: Schema.Types.ObjectId, required: true, auto: true },
   dateApplication: { type: Number, required: true },
   patient: { type: Schema.Types.ObjectId, ref: "User" },

@@ -15,6 +15,10 @@ import { SpecialityModule } from './features/speciality/speciality.module';
 import { ConsultationModule } from './features/consultation/consultation.module';
 import { FunctionalIndependencyMetricsModule } from './features/functionalIndependencyMetrics/functionalIndependencyMetrics.module';
 import { childhoodAutismRatingScaleModule } from './features/childhoodAutismRatingScale/childhoodAutismRatingScale.module';
+import { ModifiedChecklistForAutismInToddlersModule } from './features/modifiedChecklistForAutismInToddlers/modifiedChecklistForAutismInToddlers.module';
+import { ChecklistBehaviorAutisticModule } from './features/checklistBehaviorAutistic/checklistBehaviorAutistic.module';
+import { ScaleAsrsModule } from './features/scaleAsrs/scaleAsrs.module';
+import { ScaleMchatModule } from './features/scale-mchat/scaleMChat.module';
 
 @Module({
   imports: [
@@ -68,7 +72,11 @@ import { childhoodAutismRatingScaleModule } from './features/childhoodAutismRati
     SpecialityModule,
     ConsultationModule,
     FunctionalIndependencyMetricsModule,
-    childhoodAutismRatingScaleModule
+    childhoodAutismRatingScaleModule,
+    ModifiedChecklistForAutismInToddlersModule,
+    ChecklistBehaviorAutisticModule,
+    ScaleAsrsModule,
+    ScaleMchatModule
     
   ],
   controllers: [AppController],

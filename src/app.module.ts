@@ -18,6 +18,7 @@ import { childhoodAutismRatingScaleModule } from './features/childhoodAutismRati
 import { ModifiedChecklistForAutismInToddlersModule } from './features/modifiedChecklistForAutismInToddlers/modifiedChecklistForAutismInToddlers.module';
 import { ChecklistBehaviorAutisticModule } from './features/checklistBehaviorAutistic/checklistBehaviorAutistic.module';
 import { ScaleAsrsModule } from './features/scale-asrs/scaleAsrs.module';
+import { ScaleMchatModule } from './features/scale-mchat/scaleMChat.module';
 
 @Module({
   imports: [
@@ -74,7 +75,8 @@ import { ScaleAsrsModule } from './features/scale-asrs/scaleAsrs.module';
     childhoodAutismRatingScaleModule,
     ModifiedChecklistForAutismInToddlersModule,
     ChecklistBehaviorAutisticModule,
-    ScaleAsrsModule
+    ScaleAsrsModule,
+    ScaleMchatModule
     
   ],
   controllers: [AppController],
